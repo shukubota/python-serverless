@@ -1,7 +1,15 @@
 version: '3.7'
 
 services:
-  localstack:
-    image: localstack/localstack:1.0.0
+  app:
+    build: .
+    volumes:
+      - type: bind
+        source: .
+        target: /root/app
+    working_dir: /root/app
+    entrypoint: bash
+    stdin_open: true
+    tty: true
     ports:
-      - 4566:4566
+      - 9090:9090
