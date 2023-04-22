@@ -8,6 +8,8 @@ services:
         source: .
         target: /root/app
     working_dir: /root/app
+    environment:
+     - CHAT_GPT_API_KEY=${CHAT_GPT_API_KEY}
     entrypoint: bash
     stdin_open: true
     tty: true
